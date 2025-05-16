@@ -124,38 +124,51 @@ const History = () => {
           >
             HISTÓRICO
           </Box>
-          <Grid container spacing={2}>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+              gap: "20px",
+              // justifyContent: "space-between",
+              flexWrap: "wrap",
+              alignItems: "stretch",
+            }}
+          >
             {displayHistoryCards() || (
               <Suspense fallback="Carregando...">
                 <Typography>Ainda não foi realizada nenhuma ação</Typography>
               </Suspense>
             )}
-            {pageCount > 1 && (
-              <Grid
-                item
-                xs={12}
-                sx={{ display: "flex", justifyContent: "center", mt: 2 }}
-              >
-                <Pagination
-                  page={page + 1}
-                  color="primary"
-                  count={pageCount}
-                  onChange={handlePagination}
-                  sx={{
-                    "& .MuiPaginationItem-ellipsis": {
-                      color: darkMode ? "common.white" : "primary.main",
-                    },
-                    "& .MuiPaginationItem-page.Mui-selected": {
-                      backgroundColor: darkMode
-                        ? "primary.darker"
-                        : "primary.main",
-                      color: "white",
-                    },
-                  }}
-                />
-              </Grid>
-            )}
-          </Grid>
+          </Box>
+          {pageCount > 1 && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                mt: 2,
+                flexDirection: "row",
+              }}
+            >
+              <Pagination
+                page={page + 1}
+                color="primary"
+                count={pageCount}
+                onChange={handlePagination}
+                sx={{
+                  "& .MuiPaginationItem-ellipsis": {
+                    color: darkMode ? "common.white" : "primary.main",
+                  },
+                  "& .MuiPaginationItem-page.Mui-selected": {
+                    backgroundColor: darkMode
+                      ? "primary.darker"
+                      : "primary.main",
+                    color: "white",
+                  },
+                }}
+              />
+            </Box>
+          )}
         </Stack>
       </SectionContainer>
     </ContainerUniversal>

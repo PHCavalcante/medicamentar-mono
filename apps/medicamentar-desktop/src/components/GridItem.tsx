@@ -16,8 +16,9 @@ function runningActionColors(actionType: string): string {
 }
 
 const StyledPaper = styled(Paper)({
+  flexGrow: 1,
   square: false,
-  width: "440px",
+  minWidth: "440px",
   height: "120px",
   padding: "10px",
   variant: "outlined",
